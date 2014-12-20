@@ -51,8 +51,19 @@ summary(modelconf)$coefficients[3,1]
 # Now fit a second model with mpg as the outcome model that considers the interaction between number of cylinders (as a factor variable) and weight. 
 # Give the P-value for the likelihood ratio test comparing the two models and suggest a model using 0.05 as a type I error rate significance benchmark.
 
+modelconf <- lm(mpg ~ as.factor(cyl) + wt, mtcars)
+modelmpg <- lm(mpg ~ as.factor(cyl) + wt + as.factor(cyl)*wt, mtcars)
+# modelmpg <- lm(mpg ~ as.factor(cyl)*wt, mtcars)
+summary(modelmpg)$coefficients[1,4]
+summary(modelconf)$coefficients[1,4]
 
+modelconf$coeff
+modelmpg$coeff
 
+confint(modelconf)
+confint(modelmpg)
+
+# ANSWER = 
 
 ### Q4
 
